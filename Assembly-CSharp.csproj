@@ -36,9 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AudioSyncScale.cs" />
      <Compile Include="Assets\Scripts\AudioSpectrum.cs" />
      <Compile Include="Assets\Scripts\AudioSyncer.cs" />
-     <Compile Include="Assets\Scripts\AudioSyncScale.cs" />
+     <Compile Include="Assets\Scripts\ReadCSV.cs" />
+     <None Include="Assets\Models\addhere.txt" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.1.2f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -574,31 +576,31 @@
         <HintPath>/Applications/Unity/Hub/Editor/2020.1.2f1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/luoyang-sound/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/luoyang-sound/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/luoyang-sound/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/luoyang-sound/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/luoyang-sound/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/luoyang-sound/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/luoyang-sound/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/luoyang-sound/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/luoyang-sound/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>/Users/elaine01px2019/Documents/GitHub/luoyang-sound/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
