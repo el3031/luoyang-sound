@@ -31,9 +31,9 @@ public class ReadCSV : MonoBehaviour
             }
             var data_values = data_string.Split(',');
             
-            float x = float.Parse(data_values[1], System.Globalization.CultureInfo.InvariantCulture);
-            float y = float.Parse(data_values[2], System.Globalization.CultureInfo.InvariantCulture);
-            float z = float.Parse(data_values[3], System.Globalization.CultureInfo.InvariantCulture);
+            float x = float.Parse(data_values[1], System.Globalization.CultureInfo.InvariantCulture) / 100f;
+            float y = float.Parse(data_values[2], System.Globalization.CultureInfo.InvariantCulture) / 100f;
+            float z = float.Parse(data_values[3], System.Globalization.CultureInfo.InvariantCulture) / 100f;
 
             Vector3 sandDotLoc = new Vector3(x, y, z);
             GameObject sandDotClone = Instantiate(sandDot, sandDotLoc, Quaternion.identity);
