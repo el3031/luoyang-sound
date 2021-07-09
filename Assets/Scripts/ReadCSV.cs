@@ -37,6 +37,7 @@ public class ReadCSV : MonoBehaviour
 
             Vector3 sandDotLoc = new Vector3(x, y, z);
             GameObject sandDotClone = Instantiate(sandDot, sandDotLoc, Quaternion.identity);
+            sandDotClone.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             sandDotClone.transform.parent = testCSV;
 
             //Debug.Log(x.ToString() + " " + y.ToString() + " " + z.ToString());
