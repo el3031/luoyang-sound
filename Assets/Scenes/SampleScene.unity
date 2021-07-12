@@ -234,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 96044958}
   - component: {fileID: 96044957}
+  - component: {fileID: 96044959}
   m_Layer: 0
   m_Name: audio1
   m_TagString: Untagged
@@ -272,6 +273,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &96044959
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96044956}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.8610947
+  m_Center: {x: 0, y: 0.01023407, z: 0}
 --- !u!1 &148573372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,12 +1066,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ca25639797a452ebbceae3c6170627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bias: 5
+  bias: 1
   timeStep: 0.15
   timeToBeat: 0.05
   restSmoothTime: 2
-  beatScale: {x: 0.5, y: 0.5, z: 0.5}
-  restScale: {x: 1, y: 1, z: 1}
+  beatScale: {x: 1, y: 1, z: 1}
+  restScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!212 &949634759
 SpriteRenderer:
   m_ObjectHideFlags: 0

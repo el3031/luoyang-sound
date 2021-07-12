@@ -16,7 +16,19 @@ public class RingOrientation : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            audioSource.Play();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  
+            RaycastHit hit;  
+            if (Physics.Raycast(ray, out hit)) {  
+                Debug.Log(hit.transform.name);
+                //Select stage    
+                if (hit.transform.name == this.gameObject.name) {
+                    audioSource.Play();
+                }
+            }
+            else
+            {
+                Debug.Log("no");
+            }
         }
         
         Quaternion cameraRotation = Camera.main.transform.rotation;
