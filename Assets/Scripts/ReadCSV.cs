@@ -7,14 +7,23 @@ public class ReadCSV : MonoBehaviour
 {
     [SerializeField] private GameObject sandDot;
     [SerializeField] private Transform testCSV;
+
+    private float smallestX;
+    private float largestX;
+    private float smallestY;
+    private float largestY;
+    private float smallestZ;
+    private float largestZ;
     void Start()
     {
-        readCSVFile();
+        //readCSVFile("Assets/Scripts/test_02.csv");
+        //readCSVFile("Assets/Scripts/test_03.csv");
+        readCSVFile("Assets/Scripts/export_test.csv");
     }
 
-    void readCSVFile()
+    void readCSVFile(string path)
     {
-        StreamReader strReader = new StreamReader("Assets/Scripts/export_test.csv");
+        StreamReader strReader = new StreamReader(path);
         bool endOfFile = false;
 
         while (!endOfFile)
