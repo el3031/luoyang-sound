@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1440
     height: 736
-  m_MinSize: {x: 578, y: 442}
-  m_MaxSize: {x: 12003, y: 8042}
+  m_MinSize: {x: 579, y: 442}
+  m_MaxSize: {x: 12004, y: 8042}
   vertical: 0
-  controlID: 62570
+  controlID: 62907
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,18 +94,18 @@ MonoBehaviour:
       y: 21
       width: 716
       height: 423
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 358, y: 204.77301}
+    m_Scale: {x: 0.6058172, y: 0.6058172}
+    m_Translation: {x: 358, y: 219.14413}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -358
-      y: -204.77301
-      width: 716
-      height: 423
+      x: -590.9373
+      y: -361.7331
+      width: 1181.8746
+      height: 698.2304
     m_MinimalGUI: 1
   m_defaultScale: 0.55078125
   m_LastWindowPixelSize: {x: 716, y: 444}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 303, y: 442}
   m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
-  controlID: 62571
+  controlID: 62908
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_MinSize: {x: 303, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 62572
+  controlID: 62909
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -218,23 +218,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9a360000
-      m_LastClickedID: 13978
-      m_ExpandedIDs: 8ebbe3ffb6eee3ff4ef1e3ff4ef3e3ff52f6e3ff5ee0e5ff32f1e5ffba90edff62fbffff
+      m_SelectedIDs: 52f6e3ff
+      m_LastClickedID: -1837486
+      m_ExpandedIDs: c24ae3ff8ebbe3fff4cae3ff4ef1e3ff4ef3e3ff5ee0e5ff32f1e5ffba90edff62fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: ParticleSystem170
+        m_OriginalName: ParticleSystem170
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -1932850
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -263,8 +263,8 @@ MonoBehaviour:
     y: 0
     width: 718
     height: 465
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
@@ -352,7 +352,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 15}
   m_Selected: 4
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -458,8 +458,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c262e3ff
-    m_LastClickedInstanceID: -1875262
+    m_SelectedInstanceIDs: 323d0000
+    m_LastClickedInstanceID: 15666
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000b83a0000963f0000ee6100002c630100985c02005e1f030000000000
     m_RenameOverlay:
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1877486
+  m_LastSelectedObjectID: -1838846
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -639,9 +639,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 306.2292, y: 9.038893, z: 146.26738}
+    m_Target: {x: 693, y: 50, z: 87}
     speed: 2
-    m_Value: {x: 306.2292, y: 9.038893, z: 146.26738}
+    m_Value: {x: 693, y: 50, z: 87}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -670,17 +670,17 @@ MonoBehaviour:
       m_Size: {x: 1, y: 1}
     yGrid:
       m_Fade:
-        m_Target: 1
+        m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
     zGrid:
       m_Fade:
-        m_Target: 0
+        m_Target: 1
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -688,13 +688,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    m_Target: {x: 0, y: 1, z: 0, w: 0}
     speed: 2
-    m_Value: {x: -0.7071068, y: 0, z: -0, w: -0.7071068}
+    m_Value: {x: 0, y: 1, z: 0, w: 0}
   m_Size:
-    m_Target: 340.4542
+    m_Target: 1429.4547
     speed: 2
-    m_Value: 340.4542
+    m_Value: 1429.4547
   m_Ortho:
     m_Target: 1
     speed: 2

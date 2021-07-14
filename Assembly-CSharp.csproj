@@ -42,6 +42,7 @@
      <Compile Include="Assets\Scripts\AudioSpectrum.cs" />
      <Compile Include="Assets\Scripts\AudioSyncer.cs" />
      <Compile Include="Assets\Scripts\RotateCamera.cs" />
+     <Compile Include="Assets\Scripts\GenerateParticles.cs" />
      <None Include="Assets\Models\addhere.txt" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.1.2f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
