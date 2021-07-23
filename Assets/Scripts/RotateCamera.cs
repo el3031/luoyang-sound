@@ -30,13 +30,14 @@ public class RotateCamera : MonoBehaviour
     IEnumerator Rotate()
     {
         float xMove = finalMousePos.x - initialMousePos.x;
-        float time = Mathf.Clamp(xMove, 0f, 1f);
+        float time = Mathf.Clamp(Mathf.Abs(xMove), 0f, 1f);
         float timer = 0f;
         while (timer < time)
         {
             yield return null;
             timer += Time.deltaTime;
-            transform.Rotate(0, time, 0);
+            float ratio = (xMove < 0) ? -1 : 1;
+            transform.Rotate(0, time * ratio, 0);
         }
     }
 }
