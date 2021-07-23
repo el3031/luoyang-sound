@@ -5,17 +5,38 @@ using UnityEngine;
 public class RotateCamera : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Vector3 initialMousePos;
+    private Vector3 finalMousePos;
+    [SerializeField] private float rotateSpeed;
+    private bool startRotate;
 
     // Update is called once per frame
     void Update()
     {
-        float xMove = Input.GetAxis("Horizontal");
-        float yMove = Input.GetAxis("Vertical");
+        if (Input.GetMouseButtonDown(0))
+        {
+            initialMousePos = Input.mousePosition;
+            Debug.Log("mouse down");
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            finalMousePos = Input.mousePosition;
+            Debug.Log("mouse up");
+            StartCoroutine(Rotate());
+        }
 
-        transform.Rotate(xMove, yMove, 0);
+    }
+
+    IEnumerator Rotate()
+    {
+        float xMove = finalMousePos.x - initialMousePos.x;
+        float time = Mathf.Clamp(xMove, 0f, 1f);
+        float timer = 0f;
+        while (timer < time)
+        {
+            yield return null;
+            timer += Time.deltaTime;
+            transform.Rotate(0, time, 0);
+        }
     }
 }
