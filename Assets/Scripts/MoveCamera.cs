@@ -68,6 +68,6 @@ public class MoveCamera : MonoBehaviour
             maxBound = max.position.z;
         }
 
-        return (current > minBound && current < maxBound);
+        return current >= minBound && current <= maxBound;
     }
 }
