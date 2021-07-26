@@ -39,11 +39,12 @@
      <Compile Include="Assets\Scripts\GenerateParticles.cs" />
      <Compile Include="Assets\Scripts\RingOrientation.cs" />
      <Compile Include="Assets\Scripts\AudioSyncScale.cs" />
+     <Compile Include="Assets\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\ReadCSV.cs" />
      <Compile Include="Assets\Scripts\AudioSpectrum.cs" />
      <Compile Include="Assets\Scripts\AudioSyncer.cs" />
      <Compile Include="Assets\Scripts\RotateCamera.cs" />
-     <Compile Include="Assets\Scripts\MoveCamera.cs" />
+     <Compile Include="Assets\Scripts\WaveGenerator.cs" />
      <None Include="Assets\Models\addhere.txt" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.1.2f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

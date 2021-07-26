@@ -5,14 +5,22 @@ using UnityEngine;
 public class GenerateParticles : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private Transform building;
+    [SerializeField] private Transform[] models;
     [SerializeField] private ParticleSystem psPrefab;
     void Start()
     {
-        int childCount = building.childCount;
+        foreach (Transform m in models)
+        {
+            MakeParticles(m);
+        }
+    }
+
+    void MakeParticles(Transform parent)
+    {
+        int childCount = parent.childCount;
         for (int i = 0; i < childCount; i++)
         {
-            GameObject child = building.GetChild(i).gameObject;
+            GameObject child = parent.GetChild(i).gameObject;
             MeshRenderer meshR = child.GetComponent<MeshRenderer>();
 
             ParticleSystem ps = Instantiate(psPrefab, transform.position, Quaternion.identity);
@@ -29,7 +37,6 @@ public class GenerateParticles : MonoBehaviour
             emission.rateOverTime = surfaceArea;
             
             ps.maxParticles = (int) surfaceArea * 100;
-
         }
     }
 
