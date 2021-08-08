@@ -19,6 +19,6 @@ public class BackgroundScale : MonoBehaviour {
         float height = ScreenSize.GetScreenToWorldHeight;
         float hRatio = height / sHeight;
         float wRatio = width / sWidth;
-        transform.localScale =  Vector3.one * ((wRatio > hRatio) ? width : height);
+        transform.localScale =  Vector3.one * ((wRatio > hRatio) ? width  * 1.1f : height * 1.1f);
     }
 }
