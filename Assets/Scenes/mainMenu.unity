@@ -320,7 +320,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 173662632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1580548962}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickSoundlib
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &507860023
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +451,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 507860025}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1580548962}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &644442233
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +594,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07467378, y: 0}
   m_AnchorMax: {x: 0.21733691, y: 0}
-  m_AnchoredPosition: {x: 3.199829, y: 388.5}
+  m_AnchoredPosition: {x: 3.199707, y: 388.5}
   m_SizeDelta: {x: 21.055618, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1035907200
@@ -653,7 +677,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1035907200}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1580548962}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickBuddhism
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1100575877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,15 +1045,15 @@ RectTransform:
   m_GameObject: {fileID: 1558394650}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 1580548958}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -31, y: -32.99243}
-  m_SizeDelta: {x: 43.869812, y: 43.869812}
+  m_AnchoredPosition: {x: -22.2, y: -25.2}
+  m_SizeDelta: {x: 43.869812, y: 43.86981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1558394652
 MonoBehaviour:
@@ -1061,7 +1097,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1558394653}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1580548962}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1558394653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,6 +1160,7 @@ GameObject:
   - component: {fileID: 1580548961}
   - component: {fileID: 1580548960}
   - component: {fileID: 1580548959}
+  - component: {fileID: 1580548962}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1201,6 +1250,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1580548962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580548957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547fee10598e947388efe538d0ec46cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuImg: {fileID: 164706865}
 --- !u!1 &1653277410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,15 +1383,15 @@ RectTransform:
   m_GameObject: {fileID: 1972063693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 1580548958}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 38.19995, y: -26.892334}
-  m_SizeDelta: {x: 43.869812, y: 43.869812}
+  m_AnchoredPosition: {x: 28, y: -21.7}
+  m_SizeDelta: {x: 43.869812, y: 43.86981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972063695
 MonoBehaviour:
@@ -1373,7 +1435,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1972063696}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1580548962}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1972063696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1530,7 +1604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.26000002, y: 0}
   m_AnchorMax: {x: 0.4296738, y: 0}
-  m_AnchoredPosition: {x: 2.8996887, y: 388.5}
+  m_AnchoredPosition: {x: 2.8996582, y: 388.5}
   m_SizeDelta: {x: 1.055603, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2034883296
@@ -1613,4 +1687,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2034883296}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1580548962}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickArmy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

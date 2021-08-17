@@ -9,25 +9,30 @@ public class ImageFade : MonoBehaviour {
     private bool faded;
     private float originalAlpha;
     private float[] childAlphas;
+    private Image[] childImages;
    
     void Start()
     {
         originalAlpha = img.color.a;
         childAlphas = new float[img.transform.childCount];
+        childImages = new Image[childAlphas.Length];
         int i = 0;
         foreach (Transform child in img.transform)
         {
-            childAlphas[i++] = child.gameObject.GetComponent<Image>().color.a;
+            childImages[i] = child.gameObject.GetComponent<Image>();
+            childAlphas[i] = childImages[i].color.a;
+            i++;
         }
     }
     
-    public void OnButtonClick()
+    public void FadeUIMenu()
     {
         // fades the image out when you click
-        StartCoroutine(FadeImage(!faded, 1f));
+        StartCoroutine(FadeImage(!faded, 0.5f));
+        faded = !faded;
     }
  
-    IEnumerator FadeImage(bool fadeAway, float time)
+    public IEnumerator FadeImage(bool fadeAway, float time)
     {
         // fade from opaque to transparent
         if (fadeAway)
@@ -37,10 +42,11 @@ public class ImageFade : MonoBehaviour {
             {
                 // set color with i as alpha
                 float currentAlpha = img.color.a;
-                img.color = new Color(1, 1, 1, currentAlpha - Time.deltaTime);
-                foreach (Transform child in img.transform)
+                img.color = new Color(1, 1, 1, originalAlpha * i/time);
+                
+                for (int j = 0; j < childImages.Length; j++)
                 {
-                    child.gameObject.GetComponent<Image>().color = img.color;
+                    childImages[j].color = img.color;
                 }
                 yield return null;
             }
@@ -54,15 +60,15 @@ public class ImageFade : MonoBehaviour {
                 // set color with i as alpha
                 float currentAlpha = img.color.a;
                 img.color = new Color(1, 1, 1, i/time * originalAlpha);
-                int j = 0;
-                foreach (Transform child in img.transform)
+                
+                for (int j = 0; j < childImages.Length; j++)
                 {
-                    child.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, i/time * childAlphas[j++]);
+                    childImages[j].color = new Color(1, 1, 1, i/time * childAlphas[j]);
                 }
                 yield return null;
             }
             img.color = new Color(1, 1, 1, originalAlpha);
         }
-        faded = !faded;
+        
     }
 }
