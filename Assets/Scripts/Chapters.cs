@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Chapters : MonoBehaviour
 {
+    /*
     private string startChapter;
     public Image buddhism;
     public Image army;
@@ -17,11 +18,21 @@ public class Chapters : MonoBehaviour
     private Image[] fireImage;
 
     private WaitForSeconds fiveSec;
-    private WaitForSeconds twentySec;
+*/
+    public GameObject buddhismButton;
+    public GameObject armyButton;
+    public GameObject fireButton;
+
+    public AudioSource buddhismAudio;
+    public AudioSource armyAudio;
+    public AudioSource fireAudio;
+    //public GameObject armyButton;
+    //public GameObject fireButton;
     
     // Start is called before the first frame update
     void Start()
     {
+        /*
         buddhismImage = StaticImageFade.GetOriginalImages(buddhism);
         buddhismAlpha = StaticImageFade.GetOriginalAlphas(buddhism);
 
@@ -36,14 +47,18 @@ public class Chapters : MonoBehaviour
         StaticImageFade.QuickFade(armyImage);
 
         fiveSec = new WaitForSeconds(5f);
-        twentySec = new WaitForSeconds(20f);
+*/
+
+
+
 
         
-        startChapter = PlayerPrefs.GetString("chapter");
+        string startChapter = PlayerPrefs.GetString("chapter");
         if (startChapter == "buddhism")
         {
             StartCoroutine(BuddhismMain());
         }
+       /*
         else if (startChapter == "army")
         {
             StartCoroutine(ArmyMain());
@@ -52,41 +67,53 @@ public class Chapters : MonoBehaviour
         {
             StartCoroutine(FireMain());
         }
+        */
     }
 
     public IEnumerator BuddhismMain()
     {
-        //stuff here
-        yield return StartCoroutine(DisplayText(buddhismAlpha, buddhismImage));
-        
+        buddhismButton.active = true;
+        while (!buddhismButton.GetComponent<AudioButton>().started ||
+               buddhismAudio.isPlaying)
+        {
+            yield return null;
+        }
         StartCoroutine(ArmyMain());
     }
 
+    /*
+    public IEnumerator BuddhismMainSounds()
+    {
+        
+        
+        yield return StartCoroutine(ArmyMain());
+    }
+*/
+
     public IEnumerator ArmyMain()
     {
-        Debug.Log("army main");
-        //stuff here
-        yield return StartCoroutine(DisplayText(armyAlpha, armyImage));
-
+        armyButton.active = true;
+        while (!armyButton.GetComponent<AudioButton>().started ||
+               armyAudio.isPlaying)
+        {
+            yield return null;
+        }
         StartCoroutine(FireMain());
+        
+        //stuff here
+        //yield return StartCoroutine(DisplayText(armyAlpha, armyImage));
+
+        //StartCoroutine(FireMain());
     }
 
     IEnumerator FireMain()
     {
-        Debug.Log("fire main");
-        yield return StartCoroutine(DisplayText(fireAlpha, fireImage));
-        //stuff here
+        fireButton.active = true;
+        while (!fireButton.GetComponent<AudioButton>().started ||
+               fireAudio.isPlaying)
+        {
+            yield return null;
+        }
     }
 
-    public IEnumerator DisplayText(float[] alphas, Image[] images)
-    {
-        yield return fiveSec;
-        
-        StartCoroutine(StaticImageFade.FadeImage(false, 1f, alphas, images));
-        yield return twentySec;
-        StartCoroutine(StaticImageFade.FadeImage(true, 1f, alphas, images));
-
-        yield return fiveSec;
-        yield return fiveSec;
-    }
 }
