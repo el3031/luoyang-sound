@@ -48,16 +48,6 @@ public class Chapters : MonoBehaviour
 
         fiveSec = new WaitForSeconds(5f);
 */
-
-
-
-
-        
-        string startChapter = PlayerPrefs.GetString("chapter");
-        if (startChapter == "buddhism")
-        {
-            StartCoroutine(BuddhismMain());
-        }
        /*
         else if (startChapter == "army")
         {
@@ -73,7 +63,8 @@ public class Chapters : MonoBehaviour
     public IEnumerator BuddhismMain()
     {
         buddhismButton.active = true;
-        while (!buddhismButton.GetComponent<AudioButton>().started ||
+        while (!buddhismAudio.GetComponent<AudioPause>().started ||
+               buddhismAudio.GetComponent<AudioPause>().paused ||
                buddhismAudio.isPlaying)
         {
             yield return null;
@@ -93,7 +84,8 @@ public class Chapters : MonoBehaviour
     public IEnumerator ArmyMain()
     {
         armyButton.active = true;
-        while (!armyButton.GetComponent<AudioButton>().started ||
+        while (!armyAudio.GetComponent<AudioPause>().started ||
+               armyAudio.GetComponent<AudioPause>().paused ||
                armyAudio.isPlaying)
         {
             yield return null;
@@ -106,10 +98,11 @@ public class Chapters : MonoBehaviour
         //StartCoroutine(FireMain());
     }
 
-    IEnumerator FireMain()
+    public IEnumerator FireMain()
     {
         fireButton.active = true;
-        while (!fireButton.GetComponent<AudioButton>().started ||
+        while (!fireAudio.GetComponent<AudioPause>().started ||
+               fireAudio.GetComponent<AudioPause>().paused ||
                fireAudio.isPlaying)
         {
             yield return null;

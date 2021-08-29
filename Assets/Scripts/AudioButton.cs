@@ -20,7 +20,6 @@ public class AudioButton : MonoBehaviour
 
     /**** audio ****/
     public AudioSource audio;
-    public bool started;
     
     /**** making sure shows up at right time ****/
     public bool detectClick;
@@ -44,7 +43,6 @@ public class AudioButton : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-        started = false;
         detectClick = false;
 
         StartCoroutine(StaticImageFade.FadeImage(false, 0.5f, allAlphas, allSprites));
@@ -54,6 +52,7 @@ public class AudioButton : MonoBehaviour
 
     void Update()
     {
+        
         DetectClick();
     }
 
@@ -94,7 +93,7 @@ public class AudioButton : MonoBehaviour
         yield return StartCoroutine(StaticImageFade.FadeImage(true, 0.5f, labelAlphas, labelSprites));
         label.gameObject.active = false;
         audio.Play();
-        started = true;
+        audio.GetComponent<AudioPause>().started = true;
         yield return StartCoroutine(StaticImageFade.FadeImage(true, 1f, allAlphas, allSprites));
     }
 
