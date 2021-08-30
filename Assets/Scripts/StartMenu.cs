@@ -83,6 +83,7 @@ public class StartMenu : MonoBehaviour
         {
             yield return StartCoroutine(StaticImageFade.FadeImage(titleFaded=true, 1f, titleChildrenAlpha, titleChildrenImg));
         }
+        yield return new WaitForSeconds(1f);
     }
 
     public void OnClickExit()
