@@ -66,7 +66,6 @@ public class AudioButton : MonoBehaviour
                 Debug.Log(hit.transform.name);
                 //Select stage    
                 if (hit.transform.name == this.gameObject.name) {
-                    Debug.Log("hit");
                     animator.SetBool("click", true);
                     StartCoroutine(OnClick());
                 }
@@ -100,13 +99,17 @@ public class AudioButton : MonoBehaviour
     public IEnumerator DisplayText(float[] alphas, Image[] images)
     {
         yield return new WaitForSeconds(2f);
-        Debug.Log("display text");
 
         yield return StartCoroutine(StaticImageFade.FadeImage(false, 1f, alphas, images));
         yield return new WaitForSeconds(10f);
         yield return StartCoroutine(StaticImageFade.FadeImage(true, 1f, alphas, images));
-        Debug.Log("setting inactive");
         detectClick = false;
         transform.gameObject.active = false;
+    }
+
+    public IEnumerator OnSkip()
+    {
+        yield return StartCoroutine(StaticImageFade.FadeImage(true, 0.5f, imgAlphas, imgChildren));
+        yield return StartCoroutine(StaticImageFade.FadeImage(true, 0.5f, allAlphas, allSprites));
     }
 }

@@ -37,24 +37,29 @@ public class StartMenu : MonoBehaviour
 
     public void OnClickBuddhism()
     {
+        Debug.Log("click buddhism");
+        StopCoroutine(Army());
+        StopCoroutine(Fire());
         StartCoroutine(Buddhism());
     }
 
     public IEnumerator Buddhism()
     {
         yield return StartCoroutine(FadeOutMainMenu());
-        StartCoroutine(chapters.BuddhismMain());
+        yield return StartCoroutine(chapters.BuddhismMain());
     }
 
     public void OnClickArmy()
     {
+        StopCoroutine(Fire());
+        StopCoroutine(Buddhism());
         StartCoroutine(Army());
     }
 
     public IEnumerator Army()
     {
         yield return StartCoroutine(FadeOutMainMenu());
-        StartCoroutine(chapters.ArmyMain());
+        yield return StartCoroutine(chapters.ArmyMain());
     }
 
     public void OnClickSoundlib()
@@ -64,23 +69,27 @@ public class StartMenu : MonoBehaviour
 
     public void OnClickFire()
     {
+        StopCoroutine(Buddhism());
+        StopCoroutine(Army());
         StartCoroutine(Fire());
     }
     
     public IEnumerator Fire()
     {
         yield return StartCoroutine(FadeOutMainMenu());
-        StartCoroutine(chapters.FireMain());
+        yield return StartCoroutine(chapters.FireMain());
     }
 
     public IEnumerator FadeOutMainMenu()
     {
         if (!menuFaded)
         {
+            Debug.Log("fading menu");
             StartCoroutine(StaticImageFade.FadeImage(menuFaded=true, 1f, menuChildrenAlpha, menuChildrenImg));
         }
         if (!titleFaded)
         {
+            Debug.Log("fading title");
             yield return StartCoroutine(StaticImageFade.FadeImage(titleFaded=true, 1f, titleChildrenAlpha, titleChildrenImg));
         }
         yield return new WaitForSeconds(1f);

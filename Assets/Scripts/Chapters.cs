@@ -62,7 +62,26 @@ public class Chapters : MonoBehaviour
 
     public IEnumerator BuddhismMain()
     {
+        
+        StopCoroutine(FireMain());
+        StopCoroutine(ArmyMain());
+        fireAudio.Stop();
+        if (fireButton.active)
+        {
+            yield return StartCoroutine(fireButton.GetComponent<AudioButton>().OnSkip());
+        }
+        fireButton.active = false;
+        
+        
+        armyAudio.Stop();
+        if (armyButton.active)
+        {
+            yield return StartCoroutine(armyButton.GetComponent<AudioButton>().OnSkip());
+        }
+        armyButton.active = false;
+        
         buddhismButton.active = true;
+        buddhismButton.GetComponent<AudioButton>().detectClick = true;
         while (!buddhismAudio.GetComponent<AudioPause>().started ||
                buddhismAudio.GetComponent<AudioPause>().paused ||
                buddhismAudio.isPlaying)
@@ -83,6 +102,24 @@ public class Chapters : MonoBehaviour
 
     public IEnumerator ArmyMain()
     {
+        StopCoroutine(FireMain());
+        fireAudio.Stop();
+        if (fireButton.active)
+        {
+            yield return StartCoroutine(fireButton.GetComponent<AudioButton>().OnSkip());
+        }
+        fireButton.active = false;
+
+        StopCoroutine(BuddhismMain());
+        buddhismAudio.Stop();
+        if (buddhismButton.active)
+        {
+            Debug.Log("fade out");
+            yield return StartCoroutine(buddhismButton.GetComponent<AudioButton>().OnSkip());
+        }
+        buddhismButton.active = false;
+
+        
         armyButton.active = true;
         while (!armyAudio.GetComponent<AudioPause>().started ||
                armyAudio.GetComponent<AudioPause>().paused ||
@@ -100,6 +137,19 @@ public class Chapters : MonoBehaviour
 
     public IEnumerator FireMain()
     {
+        StopCoroutine(BuddhismMain());
+        buddhismAudio.Stop();
+        yield return StartCoroutine(buddhismButton.GetComponent<AudioButton>().OnSkip());
+        buddhismButton.active = false;
+
+        StopCoroutine(ArmyMain());
+        armyAudio.Stop();
+        if (armyButton.active)
+        {
+            yield return StartCoroutine(armyButton.GetComponent<AudioButton>().OnSkip());
+        }
+        armyButton.active = false;
+        
         fireButton.active = true;
         while (!fireAudio.GetComponent<AudioPause>().started ||
                fireAudio.GetComponent<AudioPause>().paused ||

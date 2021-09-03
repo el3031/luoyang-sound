@@ -16,12 +16,10 @@ public class RotateCamera : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             initialMousePos = Input.mousePosition;
-            Debug.Log("mouse down");
         }
         if (Input.GetMouseButtonUp(0))
         {
             finalMousePos = Input.mousePosition;
-            Debug.Log("mouse up");
             StartCoroutine(Rotate());
         }
 
