@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class Chapters : MonoBehaviour
 {
-    /*
-    private string startChapter;
     public Image buddhism;
     public Image army;
     public Image fire;
@@ -17,8 +15,6 @@ public class Chapters : MonoBehaviour
     private float[] fireAlpha;
     private Image[] fireImage;
 
-    private WaitForSeconds fiveSec;
-*/
     public GameObject buddhismButton;
     public GameObject armyButton;
     public GameObject fireButton;
@@ -32,56 +28,66 @@ public class Chapters : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        buddhismImage = StaticImageFade.GetOriginalImages(buddhism);
-        buddhismAlpha = StaticImageFade.GetOriginalAlphas(buddhism);
+        buddhismImage = GetOriginalImages(buddhism);
+        fireImage = GetOriginalImages(fire);
+        armyImage = GetOriginalImages(army);
 
-        armyImage = StaticImageFade.GetOriginalImages(army);
-        armyAlpha = StaticImageFade.GetOriginalAlphas(army);
+        buddhismAlpha = GetOriginalAlphas(buddhismImage);
+        armyAlpha = GetOriginalAlphas(armyImage);
+        fireAlpha = GetOriginalAlphas(fireImage);
 
-        fireImage = StaticImageFade.GetOriginalImages(fire);
-        fireAlpha = StaticImageFade.GetOriginalAlphas(fire);
-        
-        StaticImageFade.QuickFade(buddhismImage);
-        StaticImageFade.QuickFade(fireImage);
-        StaticImageFade.QuickFade(armyImage);
-
-        fiveSec = new WaitForSeconds(5f);
-*/
-       /*
-        else if (startChapter == "army")
-        {
-            StartCoroutine(ArmyMain());
-        }
-        else if (startChapter == "fire")
-        {
-            StartCoroutine(FireMain());
-        }
-        */
+        fire.gameObject.active = false;
+        buddhism.gameObject.active = false;
+        army.gameObject.active = false;
     }
 
+    float[] GetOriginalAlphas(Image[] imgChildren)
+    {
+        float[] imgAlphas = new float[imgChildren.Length];
+        imgAlphas[0] = imgChildren[0].color.a;
+        for (int i = 1; i < imgChildren.Length; i++)
+        {
+            imgAlphas[i] = imgChildren[i].color.a;
+            Debug.Log(imgAlphas[i]);
+        }
+        return imgAlphas;
+    }
+
+    Image[] GetOriginalImages(Image image)
+    {
+        Image[] imgChildren = new Image[image.transform.childCount+1];
+        imgChildren[0] = image;
+        for (int i = 0; i < image.transform.childCount; i++)
+        {
+            imgChildren[i+1] = image.transform.GetChild(i).GetComponent<Image>();
+        }
+        return imgChildren;
+    }
+
+    public IEnumerator EndOtherChapters(GameObject button, AudioSource audio, Image[] imgChildren, float[] imgAlpha)
+    {
+        button.active = false;
+        audio.Stop();
+        audio.GetComponent<AudioPause>().started = false;
+        audio.GetComponent<AudioPause>().paused = false;
+
+        if (imgChildren[0].gameObject.active && button.GetComponent<AudioButton>().chapterShowed)
+        {
+            Debug.Log("fade chapter");
+            yield return StartCoroutine(StaticImageFade.FadeImage(true, 1f, imgAlpha, imgChildren));
+       }
+        yield return null;
+    }
     public IEnumerator BuddhismMain()
     {
+        buddhismButton.active = true;
         
         StopCoroutine(FireMain());
         StopCoroutine(ArmyMain());
-        fireAudio.Stop();
-        if (fireButton.active)
-        {
-            yield return StartCoroutine(fireButton.GetComponent<AudioButton>().OnSkip());
-        }
-        fireButton.active = false;
+        yield return StartCoroutine(EndOtherChapters(fireButton, fireAudio, fireImage, fireAlpha));
+        yield return StartCoroutine(EndOtherChapters(armyButton, armyAudio, armyImage, armyAlpha));
         
         
-        armyAudio.Stop();
-        if (armyButton.active)
-        {
-            yield return StartCoroutine(armyButton.GetComponent<AudioButton>().OnSkip());
-        }
-        armyButton.active = false;
-        
-        buddhismButton.active = true;
-        buddhismButton.GetComponent<AudioButton>().detectClick = true;
         while (!buddhismAudio.GetComponent<AudioPause>().started ||
                buddhismAudio.GetComponent<AudioPause>().paused ||
                buddhismAudio.isPlaying)
@@ -91,35 +97,13 @@ public class Chapters : MonoBehaviour
         StartCoroutine(ArmyMain());
     }
 
-    /*
-    public IEnumerator BuddhismMainSounds()
-    {
-        
-        
-        yield return StartCoroutine(ArmyMain());
-    }
-*/
-
     public IEnumerator ArmyMain()
     {
         StopCoroutine(FireMain());
-        fireAudio.Stop();
-        if (fireButton.active)
-        {
-            yield return StartCoroutine(fireButton.GetComponent<AudioButton>().OnSkip());
-        }
-        fireButton.active = false;
-
         StopCoroutine(BuddhismMain());
-        buddhismAudio.Stop();
-        if (buddhismButton.active)
-        {
-            Debug.Log("fade out");
-            yield return StartCoroutine(buddhismButton.GetComponent<AudioButton>().OnSkip());
-        }
-        buddhismButton.active = false;
+        yield return StartCoroutine(EndOtherChapters(buddhismButton, buddhismAudio, buddhismImage, buddhismAlpha));
+        yield return StartCoroutine(EndOtherChapters(fireButton, fireAudio, fireImage, fireAlpha));
 
-        
         armyButton.active = true;
         while (!armyAudio.GetComponent<AudioPause>().started ||
                armyAudio.GetComponent<AudioPause>().paused ||

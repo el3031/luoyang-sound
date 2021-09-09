@@ -7,31 +7,30 @@ public class AudioButton : MonoBehaviour
 {
     /**** image assets for audio button and label ****/
     public SpriteRenderer label;
-    private float[] allAlphas;
+    public float[] allAlphas;
     private SpriteRenderer[] allSprites;
     private SpriteRenderer[] labelSprites;
-    private float[] labelAlphas;
+    public float[] labelAlphas;
     private Animator animator;
 
     /**** corresponding UI title ****/
     public Image img;
-    private float[] imgAlphas;
-    private Image[] imgChildren;
+    public float[] imgAlphas;
+    public Image[] imgChildren;
 
     /**** audio ****/
     public AudioSource audio;
-    
-    /**** making sure shows up at right time ****/
-    public bool detectClick;
 
+    public bool chapterShowed;
+    
     // Start is called before the first frame update
     void Start()
     {
-        allAlphas = StaticImageFade.GetOriginalAlphas(GetComponent<SpriteRenderer>());
+        allAlphas = new float[2]{1f, 1f};
         allSprites = StaticImageFade.GetOriginalImages(GetComponent<SpriteRenderer>());
 
         labelSprites = StaticImageFade.GetOriginalImages(label);
-        labelAlphas= StaticImageFade.GetOriginalAlphas(label);
+        labelAlphas= new float[1]{1f};
 
         imgAlphas = StaticImageFade.GetOriginalAlphas(img);
         imgChildren = StaticImageFade.GetOriginalImages(img);
@@ -40,10 +39,9 @@ public class AudioButton : MonoBehaviour
         img.gameObject.active = true;
         StaticImageFade.QuickFade(imgChildren);
 
+        chapterShowed = false;
 
         animator = GetComponent<Animator>();
-
-        detectClick = false;
 
         StartCoroutine(StaticImageFade.FadeImage(false, 0.5f, allAlphas, allSprites));
         StartCoroutine(StaticImageFade.FadeImage(true, 0.5f, labelAlphas, labelSprites));
@@ -91,6 +89,7 @@ public class AudioButton : MonoBehaviour
         StartCoroutine(DisplayText(imgAlphas, imgChildren));
         yield return StartCoroutine(StaticImageFade.FadeImage(true, 0.5f, labelAlphas, labelSprites));
         label.gameObject.active = false;
+        audio.gameObject.active = true;
         audio.Play();
         audio.GetComponent<AudioPause>().started = true;
         yield return StartCoroutine(StaticImageFade.FadeImage(true, 1f, allAlphas, allSprites));
@@ -101,10 +100,12 @@ public class AudioButton : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         yield return StartCoroutine(StaticImageFade.FadeImage(false, 1f, alphas, images));
+        chapterShowed = true;
         yield return new WaitForSeconds(10f);
         yield return StartCoroutine(StaticImageFade.FadeImage(true, 1f, alphas, images));
-        detectClick = false;
+        chapterShowed = false;
         transform.gameObject.active = false;
+        img.gameObject.active = false;
     }
 
     public IEnumerator OnSkip()
