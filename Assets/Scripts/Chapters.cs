@@ -80,7 +80,10 @@ public class Chapters : MonoBehaviour
     }
     public IEnumerator BuddhismMain()
     {
-        buddhismButton.active = true;
+        if (!buddhismAudio.isPlaying)
+        {
+            buddhismButton.active = true;
+        }
         
         StopCoroutine(FireMain());
         StopCoroutine(ArmyMain());
@@ -99,12 +102,17 @@ public class Chapters : MonoBehaviour
 
     public IEnumerator ArmyMain()
     {
+        if (!armyAudio.isPlaying)
+        {
+            armyButton.active = true;
+        }
+        
         StopCoroutine(FireMain());
         StopCoroutine(BuddhismMain());
         yield return StartCoroutine(EndOtherChapters(buddhismButton, buddhismAudio, buddhismImage, buddhismAlpha));
         yield return StartCoroutine(EndOtherChapters(fireButton, fireAudio, fireImage, fireAlpha));
 
-        armyButton.active = true;
+        
         while (!armyAudio.GetComponent<AudioPause>().started ||
                armyAudio.GetComponent<AudioPause>().paused ||
                armyAudio.isPlaying)
@@ -112,29 +120,21 @@ public class Chapters : MonoBehaviour
             yield return null;
         }
         StartCoroutine(FireMain());
-        
-        //stuff here
-        //yield return StartCoroutine(DisplayText(armyAlpha, armyImage));
 
-        //StartCoroutine(FireMain());
     }
 
     public IEnumerator FireMain()
     {
-        StopCoroutine(BuddhismMain());
-        buddhismAudio.Stop();
-        yield return StartCoroutine(buddhismButton.GetComponent<AudioButton>().OnSkip());
-        buddhismButton.active = false;
-
-        StopCoroutine(ArmyMain());
-        armyAudio.Stop();
-        if (armyButton.active)
+        if (!fireAudio.isPlaying)
         {
-            yield return StartCoroutine(armyButton.GetComponent<AudioButton>().OnSkip());
+            fireButton.active = true;
         }
-        armyButton.active = false;
         
-        fireButton.active = true;
+        StopCoroutine(BuddhismMain());
+        StopCoroutine(ArmyMain());
+        yield return StartCoroutine(EndOtherChapters(buddhismButton, buddhismAudio, buddhismImage, buddhismAlpha));
+        yield return StartCoroutine(EndOtherChapters(armyButton, armyAudio, armyImage, armyAlpha));
+        
         while (!fireAudio.GetComponent<AudioPause>().started ||
                fireAudio.GetComponent<AudioPause>().paused ||
                fireAudio.isPlaying)

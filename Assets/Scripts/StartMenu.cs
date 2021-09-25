@@ -17,6 +17,8 @@ public class StartMenu : MonoBehaviour
     private Image[] titleChildrenImg;
     private float[] titleChildrenAlpha;
     private bool titleFaded;
+
+    public Image exitPopup;
     
     void Start()
     {
@@ -97,10 +99,20 @@ public class StartMenu : MonoBehaviour
 
     public void OnClickExit()
     {
+        exitPopup.gameObject.active = true;
+    }
+
+    public void OnClickExitConfirm()
+    {
         #if (UNITY_EDITOR)
             UnityEditor.EditorApplication.isPlaying = false;
         #elif (UNITY_WEBGL)
             Application.OpenURL("https://gorfmcgorf.itch.io/");
         #endif
+    }
+
+    public void OnClickCancel()
+    {
+        exitPopup.gameObject.active = false;
     }
 }

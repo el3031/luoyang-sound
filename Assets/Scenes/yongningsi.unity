@@ -1027,9 +1027,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: {fileID: 1831238731}
+  allAlphas: []
+  labelAlphas: []
   img: {fileID: 2108350567}
+  imgAlphas: []
+  imgChildren: []
   audio: {fileID: 274419636}
-  detectClick: 0
+  chapterShowed: 0
 --- !u!114 &398834551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,9 +1243,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: {fileID: 1980242595}
+  allAlphas: []
+  labelAlphas: []
   img: {fileID: 1737174334}
+  imgAlphas: []
+  imgChildren: []
   audio: {fileID: 180431858}
-  detectClick: 0
+  chapterShowed: 0
 --- !u!135 &399166385
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2089,7 +2097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.70600003, y: 0}
   m_AnchorMax: {x: 0.87100005, y: 0}
-  m_AnchoredPosition: {x: 0.000030517578, y: 78.8}
+  m_AnchoredPosition: {x: 0, y: 78.8}
   m_SizeDelta: {x: 4.0556183, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705290285
@@ -5043,6 +5051,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aef67a7f14d4807bc477f1f8770da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buddhism: {fileID: 1737174334}
+  army: {fileID: 1979814788}
+  fire: {fileID: 2108350567}
   buddhismButton: {fileID: 399166378}
   armyButton: {fileID: 1570492595}
   fireButton: {fileID: 398834547}
@@ -5115,9 +5126,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: {fileID: 305785158}
+  allAlphas: []
+  labelAlphas: []
   img: {fileID: 1979814788}
+  imgAlphas: []
+  imgChildren: []
   audio: {fileID: 494521795}
-  detectClick: 0
+  chapterShowed: 0
 --- !u!114 &1570492599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5495,7 +5510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1737174331
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5796,15 +5811,15 @@ RectTransform:
   m_GameObject: {fileID: 1836326480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9120325, y: 0.9120325, z: 0.9120325}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 484399869}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.687, y: 0}
-  m_SizeDelta: {x: 91.16304, y: 22.180412}
+  m_AnchoredPosition: {x: 17, y: 0.0000035763}
+  m_SizeDelta: {x: 112.64665, y: 41.876717}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836326482
 MonoBehaviour:
@@ -5834,7 +5849,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 205f86c2ea4b24ba68e054c890e3d455, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 33f3c911f7afc4a8fa9e93bb7a79a2f3, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -5881,7 +5896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 67b651021e4894a6a8c17bfe0e2cc5d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 637c621906faf421d95e86405f8488af, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6054,7 +6069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1979814786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6330,7 +6345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2108350565
 MonoBehaviour:
   m_ObjectHideFlags: 0

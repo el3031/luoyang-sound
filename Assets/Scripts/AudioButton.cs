@@ -26,26 +26,28 @@ public class AudioButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("start");
+        imgAlphas = StaticImageFade.GetOriginalAlphas(img);
+        imgChildren = StaticImageFade.GetOriginalImages(img);
+        StaticImageFade.QuickFade(imgChildren);
+        animator = GetComponent<Animator>();
+    }
+
+    void OnEnable()
+    {
+        Debug.Log("enable" + gameObject.name);
         allAlphas = new float[2]{1f, 1f};
         allSprites = StaticImageFade.GetOriginalImages(GetComponent<SpriteRenderer>());
 
         labelSprites = StaticImageFade.GetOriginalImages(label);
         labelAlphas= new float[1]{1f};
-
-        imgAlphas = StaticImageFade.GetOriginalAlphas(img);
-        imgChildren = StaticImageFade.GetOriginalImages(img);
-        
-        //StaticImageFade.QuickFade(allSprites);
+                
         img.gameObject.active = true;
+        label.gameObject.active = true;
         StaticImageFade.QuickFade(imgChildren);
-
-        chapterShowed = false;
-
-        animator = GetComponent<Animator>();
-
         StartCoroutine(StaticImageFade.FadeImage(false, 0.5f, allAlphas, allSprites));
         StartCoroutine(StaticImageFade.FadeImage(true, 0.5f, labelAlphas, labelSprites));
-
+        chapterShowed = false;
     }
 
     void Update()
