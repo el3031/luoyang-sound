@@ -18,6 +18,11 @@ public class StartMenu : MonoBehaviour
     private float[] titleChildrenAlpha;
     private bool titleFaded;
 
+    public Image langSelect;
+    private Image[] langSelectChildrenImg;
+    private float[] langSelectChildrenAlpha;
+    private bool langFaded;
+
     public Image exitPopup;
     
     void Start()
@@ -26,15 +31,27 @@ public class StartMenu : MonoBehaviour
         menuChildrenImg = StaticImageFade.GetOriginalImages(menuImg);
         menuChildrenAlpha = StaticImageFade.GetOriginalAlphas(menuImg);
         StaticImageFade.QuickFade(menuChildrenImg);
+        menuImg.enabled = false;
         menuFaded = true;
 
         titleFaded = false;
         titleChildrenImg = StaticImageFade.GetOriginalImages(title);
         titleChildrenAlpha = StaticImageFade.GetOriginalAlphas(title);
+
+        langSelectChildrenAlpha = StaticImageFade.GetOriginalAlphas(langSelect);
+        langSelectChildrenImg = StaticImageFade.GetOriginalImages(langSelect);
+        langFaded = false;
     }
     public void OnClickMenu()
     {
-        StartCoroutine(StaticImageFade.FadeImage(menuFaded=!menuFaded, 0.5f, menuChildrenAlpha, menuChildrenImg));
+        StartCoroutine(OnClickMenuHelper());
+    }
+
+    public IEnumerator OnClickMenuHelper()
+    {
+        menuImg.enabled = true;
+        yield return StartCoroutine(StaticImageFade.FadeImage(menuFaded=!menuFaded, 0.5f, menuChildrenAlpha, menuChildrenImg));
+        menuImg.enabled = menuFaded ? false : true;
     }
 
     public void OnClickBuddhism()
@@ -89,11 +106,16 @@ public class StartMenu : MonoBehaviour
             Debug.Log("fading menu");
             StartCoroutine(StaticImageFade.FadeImage(menuFaded=true, 1f, menuChildrenAlpha, menuChildrenImg));
         }
+        if (!langFaded)
+        {
+            StartCoroutine(StaticImageFade.FadeImage(langFaded=true, 0.5f, langSelectChildrenAlpha, langSelectChildrenImg));
+        }
         if (!titleFaded)
         {
             Debug.Log("fading title");
             yield return StartCoroutine(StaticImageFade.FadeImage(titleFaded=true, 1f, titleChildrenAlpha, titleChildrenImg));
         }
+        
         yield return new WaitForSeconds(1f);
     }
 

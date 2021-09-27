@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/yongningsi.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/yongningsi-EN.unity
+    guid: 987091fe6a3ee43069fc84cd7d168c9a
   m_configObjects: {}

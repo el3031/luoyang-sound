@@ -120,7 +120,6 @@ public class StaticImageFade : MonoBehaviour {
                 yield return null;
             }
         }
-        
     }
 
     public static IEnumerator FadeImage(bool fadeAway, float time, float alpha, SpriteRenderer sprite)
